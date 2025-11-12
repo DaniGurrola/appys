@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Búsqueda</title>
+</head>
+<body>
+    <h1>Resultado para {{ pokemon.name }}</h1>
+    <p><strong>ID:</strong> {{ pokemon.id }}</p>
+    <p><strong>Altura:</strong> {{ pokemon.height }} metros</p>
+    <p><strong>Peso:</strong> {{ pokemon.weight }} kilogramos</p>
+    <p><strong>Tipos:</strong> {{ pokemon.types | join(', ') }}</p>
+    <p><strong>Habilidades:</strong> {{ pokemon.abilities | join(', ') }}</p>
+    <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}">
+    <br><br>
+    <a href="{{ url_for('index') }}">Volver a buscar</a>
+</body>
+</html>

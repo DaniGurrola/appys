@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Pokémon</title>
+</head>
+<body>
+    <h1>Busca tu Pokémon</h1>
+    <form action="{{ url_for('search_pokemon') }}" method="POST">
+        <label for="pokemon_name">Nombre del Pokémon:</label>
+        <input type="text" name="pokemon_name" id="pokemon_name" required>
+        <button type="submit">Buscar</button>
+    </form>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
